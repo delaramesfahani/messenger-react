@@ -1,0 +1,29 @@
+body {
+background: url('./component/imgs/img1.jpg');
+background-size: cover;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-image: linear-gradient(to bottom right, #B0BEC5, #EEEEEE);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 25vw;
+  height: 50vh;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 30px;
+}
+/* for button style */
+.MuiButton-containedSecondary {
+  background-image: linear-gradient(to right, #212121 , #4CAF50);
+}
+
+
+
+@media screen and (max-width: 800px) {
+  .form {
+    width: 60vw;
+  }
+}

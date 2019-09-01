@@ -1,0 +1,136 @@
+body {
+    padding: 5%;
+    
+}
+.chat {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: url('./../component/imgs/img9.jpg');
+    background-size:cover;
+    height: 80vh;
+    flex-grow:4;
+    }
+
+.MuiAppBar-colorPrimary {
+    background-image: linear-gradient(to right, #212121 , #438e41);
+    flex-grow: 1;
+}
+
+.messenger {
+    display: flex;
+    background-image: linear-gradient(to bottom right, #E0E0E0, #EEEEEE);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.footer{
+    display: flex;
+    flex-grow: 1;
+}
+
+
+.sender {
+    align-self: flex-end;
+    background-image: linear-gradient(to right, #FDD835 , #FFF176);  
+    padding: 12px 40px;
+    border-radius: 20px 20px 0 20px;
+    margin: 20px;
+  }
+.receiver {
+    align-self: flex-start;
+    background-image: linear-gradient(to right, #FF8A65 , #F4511E);  
+    border-radius: 20px 20px 20px 0px;
+    padding: 12px 40px;
+    margin: 20px;
+  }
+.box{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 20;
+}
+.list{
+    display: flex;
+    flex-grow:1;
+    flex-direction: column;
+    justify-content: space-between;
+    justify-content: flex-start;
+
+}
+.conversation {
+    height: 90px;
+    background-color: #FAFAFA;
+    border-bottom: solid 1px #E0E0E0;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0px 8px 10px rgba(0,0,0,0.20);
+    overflow: hidden;
+    background-image: linear-gradient(to bottom right, #EEEEEE, #fff);
+}
+.info1 {
+    display: flex;
+    flex-direction: column;
+    
+}
+.info2{
+    display: flex;
+    flex-direction: row;
+    padding: 12px;
+    justify-content: space-between;
+    color: #1B5E20;
+}
+.unseen{
+    background-color: #e57373;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    color: #fff;
+    border-radius: 50px;
+}
+.name {
+    font-weight: bold;
+    font-size: 17px;
+    
+}
+.conversation:hover{
+    background-image: linear-gradient(to right, #b2beb7 , #abb8b1);
+}
+.profileImg {
+    margin-left:20px;
+      display: block;
+      width: 45px;
+      height: 45px;
+      background: #E6E7ED;
+      -webkit-border-radius: 50px;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin-top: 15px;
+}
+.search {
+    padding: 12px;
+    margin: 10px;
+    border-radius: 22px;
+    border: none;
+    height: 20px;
+    display: flex;
+    flex-grow: 4;
+}
+.searchbar{
+    display: flex;
+    justify-content: space-between;
+}
+.infoContainer {
+    padding-left: 17px;
+    padding-top: 9px;
+}
+.MuiFab-secondary{
+    margin: 8px !important;
+    background-color: #2E7D32 !important;
+}
+.MuiFab-primary {
+    background-color: #2E7D32 !important;
+    margin: 10px !important ;
+}
+.sendImg{
+    width: 24px;
+}
