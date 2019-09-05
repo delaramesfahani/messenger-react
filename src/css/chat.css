@@ -1,19 +1,21 @@
 body {
-    padding: 5%;
+    padding: 10%;
     
 }
 .chat {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: url('./../component/imgs/img9.jpg');
+    /* background: url('./../component/imgs/sky.jpg'); */
+    background-image: linear-gradient(to bottom right, #EEE, #82aba3);
     background-size:cover;
     height: 80vh;
     flex-grow:4;
     }
 
+
 .MuiAppBar-colorPrimary {
-    background-image: linear-gradient(to right, #212121 , #438e41);
+    background-image: linear-gradient(to right, #03236c , #fc345f);
     flex-grow: 1;
 }
 
@@ -38,7 +40,7 @@ body {
   }
 .receiver {
     align-self: flex-start;
-    background-image: linear-gradient(to right, #FF8A65 , #F4511E);  
+    background-image: linear-gradient(to bottom right, #EEEEEE, #fff);
     border-radius: 20px 20px 20px 0px;
     padding: 12px 40px;
     margin: 20px;
@@ -76,7 +78,6 @@ body {
     flex-direction: row;
     padding: 12px;
     justify-content: space-between;
-    color: #1B5E20;
 }
 .unseen{
     background-color: #e57373;
@@ -92,7 +93,7 @@ body {
     
 }
 .conversation:hover{
-    background-image: linear-gradient(to right, #b2beb7 , #abb8b1);
+    background-image: linear-gradient(to right, #b2beb7 , #f793a8);
 }
 .profileImg {
     margin-left:20px;
@@ -125,12 +126,25 @@ body {
 }
 .MuiFab-secondary{
     margin: 8px !important;
-    background-color: #2E7D32 !important;
+    background-color: #fc345f !important;
 }
 .MuiFab-primary {
-    background-color: #2E7D32 !important;
+    background-color: #fc345f !important;
     margin: 10px !important ;
 }
 .sendImg{
     width: 24px;
+}
+.editPen {
+    width: 20px;
+    margin-left: 20px;
+}
+.profile {
+    background: #fff;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.inputs {
 }

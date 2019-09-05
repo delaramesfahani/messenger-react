@@ -5,57 +5,77 @@ import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import { createNewConversation } from './../../action/convAction'
 import { connect } from 'react-redux'
+import axios from 'axios'
 
 class List extends React.Component {
-    constructor () {
-      super()
-  
-      this.state = {
-        newConv: '',
-        suggestionUsers: [],
-        token: window.localStorage.getItem('token')
-      }
+  constructor () {
+    super()
+    this.state = {
+      newConv: '',
+      suggestionUsers: [],
+      token: window.localStorage.getItem('token')
     }
+  }
 
-    handleClick () {
-      this.props.dispatch(createNewConversation(this.state.newConv))
-      this.setState({ newConv: '' })
-    }
+  handleClick () {
+    this.props.dispatch(createNewConversation(this.state.newConv))
+    this.setState({ newConv: '' })
+  }
 
-    render(){
-      console.log('propssss',this.props)
-        return(
-            <div className="list">
-              <div className="searchbar">
-              <input type="text" className="search" placeholder="Search..." />
+  handleSearch (e) {
+    const fdata = new FormData()
+    fdata.append('token', this.state.token)
+    fdata.append('query', e.target.value)
+    fdata.append('size', 4)
 
-              {/*** searchbar on top of conversations ***/}
-              <Fab size="small" color="secondary" aria-label="add">
-                <AddIcon />
-              </Fab>
+    axios.post('https://api.paywith.click/explore/search/contacts/', fdata)
+      .then((response) => {
+        console.log('dataaaaa:', response.data)
+        this.setState({ suggestionUsers: response.data.data.users })
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
 
-              </div>
-             { this.props.conversationList.map((item, index) => (
-              <Conversation
-                key={index}
-                name={item.firstName}
-                lastName={item.lastName}
-                latestMessage={item.latestMessage}
-                unseenMessage={item.unseenMessage} />
+  render () {
+    return (
+      <div className='list'>
+        <div className='searchbar'>
+          <input type='text' className='search' placeholder='Search...' onChange={(e) => this.handleSearch(e)} />
+          <Fab size='small' color='secondary' aria-label='add'>
+            <AddIcon />
+          </Fab>
+        </div>
+        {
+          this.state.suggestionUsers.map((user, index) => {
+            return (
+              <p key={user.id}>
+                {user.email}
+              </p>
             )
-            )
+          })
         }
-            </div>
+        {this.props.conversationList.map((item, index) => (
+          <Conversation
+            key={index}
+            name={item.firstName}
+            lastName={item.lastName}
+            latestMessage={item.latestMessage}
+            unseenMessage={item.unseenMessage}
+          />
         )
-    }
+        )
+        }
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = (state) => ({
   conversationList: state.conversationList
 })
-
 const mapDispatchToProps = (dispatch) => ({
   dispatch: dispatch
 })
-
 export default connect(mapStateToProps, mapDispatchToProps)(List)

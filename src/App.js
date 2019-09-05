@@ -6,6 +6,7 @@ import Messenger from './component/messenger/messenger'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import conversation from './reducer/convReducer'
+import Profile from './component/profile'
 import './App.css'
 
 const store = createStore(conversation)
@@ -17,6 +18,7 @@ function App() {
         <Route path='/' exact component={Login} />
         <Route path='/signup/' component={Signup} />
         <Route path='/messenger/' component={Messenger} />
+        <Route path='/profile/' component={Profile} />
       </Router>
     </Provider>
   );
