@@ -2,29 +2,8 @@ const Init = {
   firstName: '',
   lastName: '',
   messageList: [],
-  conversationList: [
-    {
-      firstName: 'omid',
-      lastName: '',
-      latestMessage: 'Hi',
-      unseenMessage: '1',
-      profile: '#'
-    },
-    {
-      firstName: 'Aida',
-      lastName: 'Rezakhani',
-      latestMessage: 'bye',
-      unseenMessage: '3',
-      profile: '#'
-    },
-    {
-      firstName: 'Mom',
-      lastName: '',
-      latestMessage: 'see you',
-      unseenMessage: '2',
-      profile: '#'
-    }
-  ]
+  conversationList: [],
+  conversation_id: ''
 }
 
 const conversation = (state = Init, action) => {
@@ -37,7 +16,6 @@ const conversation = (state = Init, action) => {
       }
 
     case 'SEND_NEW_MESSAGE':
-      console.log('kkkkkkkk', action,state)
       return {
         ...state,
         messageList: [
@@ -63,6 +41,17 @@ const conversation = (state = Init, action) => {
           },
           ...state.conversationList
         ]
+      }
+    case 'CONVERSATION_SHOW':
+      return {
+        ...state,
+        conversationList: action.payload
+
+      }
+    case 'OPEN_CONVERSATION':
+      return {
+        ...state,
+        conversation_id: action.payload
       }
 
     default:

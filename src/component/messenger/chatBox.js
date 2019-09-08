@@ -2,7 +2,6 @@ import React from 'react'
 import './../../css/chat.css'
 import { connect } from 'react-redux'
 
-
 class Box extends React.Component {
   constructor () {
     super()
@@ -14,7 +13,7 @@ class Box extends React.Component {
 
   render () {
     return (
-      <div className='box'>      
+      <div className='box'>    
         {this.props.messageList.map((message, index) => {
           if (message.sender === 1) {
             return (

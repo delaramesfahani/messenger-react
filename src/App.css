@@ -19,15 +19,11 @@ background-size: cover;
 .MuiButton-containedSecondary {
   background-image: linear-gradient(to right, #03236c , #fc345f);
 }
-
-
-
 @media screen and (max-width: 800px) {
   .form {
     width: 60vw;
   }
 }
 .error {
-  color: #fc345f;
-  
+  color: #fc345f; 
 }

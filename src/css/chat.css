@@ -1,5 +1,5 @@
 body {
-    padding: 10%;
+    padding: 7%;
     
 }
 .chat {
@@ -9,8 +9,8 @@ body {
     /* background: url('./../component/imgs/sky.jpg'); */
     background-image: linear-gradient(to bottom right, #EEE, #82aba3);
     background-size:cover;
-    height: 80vh;
     flex-grow:4;
+    height: 84vh;
     }
 
 
@@ -33,10 +33,11 @@ body {
 
 .sender {
     align-self: flex-end;
-    background-image: linear-gradient(to right, #FDD835 , #FFF176);  
+    background-image: linear-gradient(to right, #03236c , #3e909c);  
     padding: 12px 40px;
     border-radius: 20px 20px 0 20px;
     margin: 20px;
+    color: #fff;
   }
 .receiver {
     align-self: flex-start;
@@ -49,6 +50,7 @@ body {
     display: flex;
     flex-direction: column;
     flex-grow: 20;
+    height: 50vh;
 }
 .list{
     display: flex;
@@ -101,7 +103,7 @@ body {
       width: 45px;
       height: 45px;
       background: #E6E7ED;
-      -webkit-border-radius: 50px;
+      border-radius: 50px;
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -146,5 +148,11 @@ body {
     flex-direction: column;
     align-items: center;
 }
-.inputs {
+.contacts {
+    padding: 10px;
+    border: 1px solid #fc345f;
+    border-radius: 10px;
+}
+.contacts:hover {
+    background-image: linear-gradient(to right, #eee , #f793a8);
 }

@@ -59,8 +59,9 @@ class Login extends React.Component {
       password: this.state.fields.password
     })
       .then((response) => {
-        console.log('data:', response.data)
+        console.log('data:', response.data.data)
         window.localStorage.setItem('token', response.data.data.token)
+        window.localStorage.setItem('user_id', response.data.data.profile.id)
         this.props.history.push('/messenger/')
       })
       .catch(function (error) {
@@ -90,13 +91,13 @@ class Login extends React.Component {
             margin='normal'
             onChange={(e) => this.handlePass(e)}
           />
-          {this.state.errors.password !== null && <span className='error'>{this.state.errors.password}</span> }
+          {this.state.errors.password !== null && <span className='error'>{this.state.errors.password}</span>}
           <Button variant='contained' color='secondary' onClick={() => this.handleError()}>
             LOGIN
           </Button>
         </div>
       </form>
     )
-  }   
+  }
 }
 export default withRouter(Login)
