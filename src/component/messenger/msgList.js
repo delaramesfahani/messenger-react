@@ -79,7 +79,6 @@ class List extends React.Component {
 
 
   render () {
-    console.log('conversationList:',this.props.messages)
     return (
       <div className='list'>
         <div className='searchbar'>
