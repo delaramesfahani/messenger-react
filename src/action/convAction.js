@@ -5,9 +5,10 @@ export const getUserName = (firstName, lastName) => ({
   family: lastName
 })
 
-export const sendNewMessage = (newMessage) => ({
+export const sendNewMessage = (newMessage , date) => ({
   type: 'SEND_NEW_MESSAGE',
-  payload: newMessage
+  newMessage: newMessage,
+  date: date
 })
 
 export const createNewConversation = (name) => ({
@@ -15,16 +16,24 @@ export const createNewConversation = (name) => ({
   payload: name
 })
 
-export const conversationShow = (name) => ({
+export const conversationShow = (conversations) => ({
   type: 'CONVERSATION_SHOW',
-  payload: name
+  conversations: conversations
 })
 
 export const creatConversationPage = (name) => ({
   type: 'CREATE_CONVERSATION',
   payload: name
 })
-export const openConversation = (number) => ({
+export const openConversation = (id) => ({
   type: 'OPEN_CONVERSATION',
-  payload: number
+  payload: id
+})
+export const getConversationId = (id) => ({
+  type: 'GET_CONVERSATION_ID',
+  id: id
+})
+export const getMessageList = (messages) => ({
+  type: 'GET_MESSAGE_LIST',
+  messages: messages
 })

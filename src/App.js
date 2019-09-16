@@ -11,7 +11,7 @@ import './App.css'
 
 const store = createStore(conversation)
 
-function App() {
+function App () {
   return (
     <Provider store={store}>
       <Router>
@@ -21,7 +21,7 @@ function App() {
         <Route path='/profile/' component={Profile} />
       </Router>
     </Provider>
-  );
+  )
 }
 
-export default App;
+export default App

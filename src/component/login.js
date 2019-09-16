@@ -53,7 +53,7 @@ class Login extends React.Component {
   }
 
   handleRequest () {
-    console.log('state::::',this.state)
+    console.log('state::::', this.state)
     axios.post('https://api.paywith.click/auth/signin/', {
       email: this.state.fields.email,
       password: this.state.fields.password
@@ -75,7 +75,7 @@ class Login extends React.Component {
       <form>
         <div className='form'>
           <Typography variant='h5' gutterBottom>
-          LOGIN HERE
+            LOGIN HERE
           </Typography>
           <TextField
             label='Email'

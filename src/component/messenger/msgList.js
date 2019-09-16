@@ -7,7 +7,7 @@ import { createNewConversation } from './../../action/convAction'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import { conversationShow } from './../../action/convAction'
-import { creatConversationPage } from './../../action/convAction'
+
 
 class List extends React.Component {
   constructor () {
@@ -77,41 +77,25 @@ class List extends React.Component {
       })
   }
 
-  handleOpenConversation = (cid) => {
-    const fdata = new FormData()
-    fdata.append('token', this.state.token)
-    fdata.append('conversation_id', cid)
-    fdata.append('size', 10)
-
-    axios.post('https://api.paywith.click/conversation/details/', fdata) 
-
-      .then((response) => {
-        console.log('details::', response.data)
-        this.props.dispatch(creatConversationPage(response.data.data.conversation_id))
-      })
-      .catch(function (error) {
-        console.log('detailsError::', error)
-      })
-  }
 
   render () {
-    console.log('conversationList:',this.props.conversationList)
+    console.log('conversationList:',this.props.messages)
     return (
       <div className='list'>
         <div className='searchbar'>
-          <input type='text' className='search' placeholder='Search...' onChange={(e) => this.handleSearch(e)} />
+          <input type='text' className='search' placeholder='Search...' name='newConv' onChange={(e) => this.handleSearch(e)} />
           <Fab size='small' color='secondary' aria-label='add' onClick={() => this.handleClick()}>
             <AddIcon />
           </Fab>
         </div>
         {
-          this.state.suggestionUsers.map((user, index) => {
+          this.state.suggestionUsers.map((item, index) => {
             return (
               <p 
               className='contacts' 
-              key={user.id} 
-              onClick={() => this.handleContact(user.id)}>
-              {user.email}
+              key={item.id} 
+              onClick={() => this.handleContact(item.id)}>
+              {item.email}
               </p>
             )
           })
@@ -120,15 +104,18 @@ class List extends React.Component {
         {this.props.conversationList.map((item, index) => (
           item.users.map((user,idx) => (
             user.id != window.localStorage.getItem('user_id') &&
+            
             <Conversation
             key={idx}
             name={user.email}
-            onClick={() => this.handleOpenConversation(item.cid)}
+            id={user.id}
+            item={index}
+            conversation_id={item.id}
+            onClick={() => this.handleOpenConversation(item.id)}
           />
-          )
           
           )
-            
+          )
         )
         )}
 

@@ -3,7 +3,8 @@ const Init = {
   lastName: '',
   messageList: [],
   conversationList: [],
-  conversation_id: ''
+  messages: [],
+  id: ''
 }
 
 const conversation = (state = Init, action) => {
@@ -12,7 +13,8 @@ const conversation = (state = Init, action) => {
       return {
         ...state,
         firstName: action.name,
-        lastName: action.family
+        lastName: action.family,
+        image: action.image
       }
 
     case 'SEND_NEW_MESSAGE':
@@ -21,10 +23,8 @@ const conversation = (state = Init, action) => {
         messageList: [
           ...state.messageList,
           {
-            text: action.payload,
-            date: new Date().getHours(),
-            sender: 1,
-            receiver: 3
+            text: action.newMessage,
+            date: new Date().getHours() + ':' + new Date().getMinutes()
           }
         ]
       }
@@ -45,13 +45,23 @@ const conversation = (state = Init, action) => {
     case 'CONVERSATION_SHOW':
       return {
         ...state,
-        conversationList: action.payload
+        conversationList: action.conversations
 
       }
-    case 'OPEN_CONVERSATION':
+    // case 'OPEN_CONVERSATION':
+    //   return {
+    //     ...state,
+    //     id: action.id
+    //   }
+    case 'GET_CONVERSATION_ID' :
       return {
         ...state,
-        conversation_id: action.payload
+        id: action.id
+      }
+    case 'GET_MESSAGE_LIST' :
+      return {
+        ...state,
+        messages: [action.messages]
       }
 
     default:
