@@ -1,11 +1,12 @@
 
-export const getUserName = (firstName, lastName) => ({
+export const getUserName = (firstName, lastName, avatar) => ({
   type: 'SAVE_SELECTED_USER_NAME',
   name: firstName,
-  family: lastName
+  family: lastName,
+  avatar: avatar 
 })
 
-export const sendNewMessage = (newMessage , date) => ({
+export const sendNewMessage = (newMessage, date) => ({
   type: 'SEND_NEW_MESSAGE',
   newMessage: newMessage,
   date: date

@@ -14,7 +14,7 @@ const conversation = (state = Init, action) => {
         ...state,
         firstName: action.name,
         lastName: action.family,
-        image: action.image
+        avatar: action.avatar
       }
 
     case 'SEND_NEW_MESSAGE':

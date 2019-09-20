@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { getMessageList, getUserName, getConversationId } from './../../action/convAction'
 import axios from 'axios'
 
-var profileUrl = require('./../imgs/avatar.png')
+// var profileUrl = require('./../imgs/avatar.png')
 
 class Conversation extends React.Component {
   constructor () {
@@ -16,7 +16,7 @@ class Conversation extends React.Component {
 
   handleOpenConversation () {
     this.props.dispatch(getConversationId(this.props.conversation_id))
-    this.props.dispatch(getUserName(this.props.name, this.props.family))
+    this.props.dispatch(getUserName(this.props.name, this.props.family, this.props.avatar))
 
     const fdata = new FormData()
     fdata.append('token', this.state.token)
@@ -36,10 +36,11 @@ class Conversation extends React.Component {
   }
 
   render () {
+    // console.log('props:', this.props)
     return (
       <div>
         <div className='conversation' onClick={() => this.handleOpenConversation()}>
-          <img src={profileUrl} alt='profile' className='profileImg' />
+          <img src={this.props.avatar} alt='profile' className='profileImg' />
           <div className='infoContainer'>
             <div className='info1'>
               <span className='name'>{this.props.name}</span>
@@ -47,7 +48,7 @@ class Conversation extends React.Component {
             </div>
             <div className='info2'>
               <span />
-              {/* <span className='unseen'> {this.props.unseenMessage}</span> */}
+              {/* <span className='unseen'>{this.props.unseenMessage}</span> */}
             </div>
           </div>
         </div>

@@ -79,6 +79,7 @@ class List extends React.Component {
 
 
   render () {
+    console.log('conversationList::', this.props.conversationList)
     return (
       <div className='list'>
         <div className='searchbar'>
@@ -110,6 +111,7 @@ class List extends React.Component {
             id={user.id}
             item={index}
             conversation_id={item.id}
+            avatar={user.avatar_url}
             onClick={() => this.handleOpenConversation(item.id)}
           />
           
